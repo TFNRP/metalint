@@ -5,10 +5,11 @@ import { Fixer, FixerCommands } from "./fixer";
 import ruleMap from "./rules";
 import glob from "glob";
 import { Config } from './config';
+import { lineBreakPattern } from './ast-utils';
 
 export function runRules(source: string, ast: XMLDocument, rules: any): any[] {
   const problems: any[] = [];
-  const linedSource = source.split(/\r\n|[\r\n\u2028\u2029]/u);
+  const linedSource = source.split(lineBreakPattern);
 
   for (const ruleId in rules) {
     const rule = ruleMap.get(ruleId);

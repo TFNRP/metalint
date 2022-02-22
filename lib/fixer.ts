@@ -39,7 +39,7 @@ export class Fixer extends null {
         const start = fix.range[0];
         const end = fix.range[1];
 
-        if (lastPos >= start || start > end) {
+        if (lastPos > start || start > end) {
           remainingMessages.push(problem);
           continue;
         }
